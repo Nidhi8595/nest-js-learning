@@ -1,10 +1,13 @@
-import { Module } from '@nestjs/common';
+// similar to App.js in react(imports all the modules)
 
-// similar to App.js in react
+import { Module } from '@nestjs/common';
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
+import { BookmarkModule } from './bookmark/bookmark.module';
 
 // decorator 
 @Module({
-  imports: [],
+  imports: [AuthModule, UserModule, BookmarkModule],
   
 })
 export class AppModule {}
