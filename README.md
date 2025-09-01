@@ -59,3 +59,8 @@ $ npm run test:cov
 
 ## Setup of Authentication module
 ---- built signup and signin endpoints in AuthController using @Post decorator
+
+## Setup of docker and postgres
+
+--> docker ps, docker --version,  docker compose version, docker compose up -d --build, docker logs ''
+--> npm i -D prisma@latest, npx prisma init

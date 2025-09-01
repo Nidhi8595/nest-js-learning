@@ -8,13 +8,13 @@ export class AuthController {
 
     @Post('signup')
     signup() {
-        return 'This is signup endpoint'
+        return this.authService.signup()// calling the method from auth service
     }
 
     @Post('signin')
     signin() {
 
-        return 'This is signin endpoint'
+        return this.authService.signin()
     }
 
 } 
