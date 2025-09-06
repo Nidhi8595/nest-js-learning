@@ -14,26 +14,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// setting up models 
-
-model User{
-  id Int @id @default(autoincrement())
+model User {
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  email String
-  hash String
+  email String @unique
+  hash  String
 
-  firstName String?  // ? means optional field
-  lastName String?
+  firstName String? // ? means optional field
+  lastName  String?
+
+  bookmarks Bookmark[] // one to many relationship between user and bookmark
+
+  @@map("users") // to rename the table in the database
 }
 
-model Bookmark{
-  id Int @id @default(autoincrement())
+model Bookmark {
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  title String
+  title       String
   description String?
-  link String
+  link        String
+
+  // one to many relationship between user and bookmark
+  userId Int
+  user   User @relation(fields: [userId], references: [id]) // references to id of user model
+
+  @@map("bookmarks")
 }
