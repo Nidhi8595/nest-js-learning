@@ -33,7 +33,7 @@ export class AuthService {
 
             // or
 
-            const { hash: _, ...userWithoutHash } = user; // to remove the hash from the returned user object
+            const { hash: _, ...userWithoutHash } = user; // to remove the hash from the returned user object and store into a "ignored variable"
 
             return userWithoutHash;
         }
@@ -47,8 +47,33 @@ export class AuthService {
 
             throw error
         }
+    }
 
-        // async signin(dto: AuthDto) {
-        //     return { msg: 'Hey there! i have signed in' }
-        // }
-    }}
+    async signin(dto: AuthDto) {
+
+        // firstly find if the user having such email exists
+        const user = await this.prisma.user.findUnique({
+            where: {
+                email: dto.email,
+            },
+        })
+
+        // if user does not exist throw exception
+        if (!user) {
+            throw new ForbiddenException('User does not exist')
+        }
+
+        // then, compare passwords
+        const pwMatches = await argon.verify(user.hash,dto.password)
+
+        if(!pwMatches){
+            throw new ForbiddenException('Credentials incorrect')
+        }
+
+        // otherwise return the user
+        
+        const { hash: _, ...userWithoutHash } = user; // to remove the hash from the returned user object and store into a "ignored variable i.e. _"
+
+        return userWithoutHash;
+    }
+}

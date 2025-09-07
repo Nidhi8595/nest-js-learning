@@ -58,6 +58,24 @@ $ npm run test:cov
 
 ---> validation for not allowing duplicate credentials setup
 
----> return user details upon signup (except hash)
+---> return user details upon signup (except hash i.e. - remove hash from object and store into a ignored variable using _)
 
 ---> API endpoint tested using "insomnia"
+
+## created Signin logic and authentication
+
+---> using DTO and validationPipes
+
+---> find user using FindUnique()
+
+---> compare passwords using argon.verify(dto.password, user.hash)
+
+---> return user details upon signin (except hash)
+
+## written script to rebuild container and apply migrations to db
+
+---> "db:dev:rm":"docker compose rm db -s -f -v",
+---> "db:dev:up":"docker compose rm db -d",
+---> "db:dev:restart":"npm run db:dev:rm && npm run db:dev:up",
+
+
