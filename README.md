@@ -76,6 +76,17 @@ $ npm run test:cov
 
 ---> "db:dev:rm":"docker compose rm db -s -f -v",
 ---> "db:dev:up":"docker compose rm db -d",
----> "db:dev:restart":"npm run db:dev:rm && npm run db:dev:up",
+---> "prisma:dev:deploy":"npm run prisma migrate deploy",
+---> "db:dev:restart":"npm run db:dev:rm && npm run db:dev:up && wait-up && prisma:dev:deploy",
 
+## using config module
+
+---> implemented in the root module(generally)
+---> @nestjs/config lets you manage app settings and secrets via .env instead of hardcoding them.
+
+## JWT token for authorization
+
+---> npm i @nestjs/passport passport @nestjs/jwt passport-jwt
+
+---> after user login this token will be returned and will have a expiry period
 
