@@ -24,7 +24,7 @@ describe('App e2e', () => {
     );
     await app.init();// start the server
 
-    prisma=app.get(PrismaService);
+    prisma = app.get(PrismaService);
 
     await prisma.cleanDb();// clean the database before running any tests
   });
@@ -34,5 +34,32 @@ describe('App e2e', () => {
     await app.close();
   });
 
-  it.todo("should pass");
+  describe('Auth', () => {
+    describe('Signup', () => {
+      it.todo('should sign up');
+    })
+    describe('Signin', () => {
+      it.todo('should sign in');
+    })
+  })
+
+  describe('User', () => {
+    describe('Get me', () => {
+    })
+    describe('Edit user', () => {
+    })
+  })
+
+  describe('Bookmarks', () => {
+    describe('Create bookmark', () => {
+    })
+    describe('Get bookmarks', () => {
+    })
+    describe('Get bookmark by id', () => {
+    })
+    describe('Edit bookmark', () => {
+    })
+    describe('Delete bookmark', () => {
+    })
+  })
 });
