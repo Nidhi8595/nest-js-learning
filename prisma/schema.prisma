@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -41,7 +35,7 @@ model Bookmark {
 
   // one to many relationship between user and bookmark
   userId Int
-  user   User @relation(fields: [userId], references: [id]) // references to id of user model
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade) // references to id of user model.............cascade means if user is deleted all his bookmarks will be deleted
 
   @@map("bookmarks")
 }

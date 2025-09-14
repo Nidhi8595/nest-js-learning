@@ -105,4 +105,11 @@ $ npm run test:cov
 ---> need to specify --no--cache in script
 ---> need to specify the root structure of src if the test scipt is present in a folder and not at root level so it could understand the relative paths in import statements
 
----> we need to have a dedicated db just for testing purpose and the other one remains for dev purpose
+---> we need to have a dedicated db just for testing purpose and the other one remains for dev purpose(// port need to be changed)
+---> Note: but we can't create that for .env etc so we use dotenv cli for that
+
+## Deletion (this method is used to clean the database before running tests)
+---> cascade means if user is deleted all his bookmarks will be deleted (due to Parent- child relation)
+
+---> we make use of transaction to ensure that the order of deleting the parent and child tables is maintained( i.e. the bookmarks are deleted before the user is deleted)
+
