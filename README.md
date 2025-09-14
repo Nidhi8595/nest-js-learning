@@ -101,3 +101,8 @@ $ npm run test:cov
 ## Testing
 
 ---> Nestjs tests by taking the code of a complete module and compiling it, and creating a test module out of it
+
+---> need to specify --no--cache in script
+---> need to specify the root structure of src if the test scipt is present in a folder and not at root level so it could understand the relative paths in import statements
+
+---> we need to have a dedicated db just for testing purpose and the other one remains for dev purpose

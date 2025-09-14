@@ -4,7 +4,7 @@ import { PrismaService } from "../prisma/prisma.service"
 
 import { AuthDto } from './dto'
 import * as argon from 'argon2' // for hashing the password
-import { PrismaClientKnownRequestError } from "generated/prisma/runtime/library";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { JwtService } from "@nestjs/jwt";
 import { ConfigService } from "@nestjs/config"; // to use jwt secret from env file
 
