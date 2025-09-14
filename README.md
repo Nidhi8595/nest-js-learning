@@ -90,3 +90,14 @@ $ npm run test:cov
 
 ---> after user login this token will be returned and will have a expiry period
 
+---> verifying that token using strategy (creating it as a separate provider for this specific purpose)
+
+## Get endpoint for returning users existing in DB
+
+---> Guards determine whether a given request will be handled by the route handler or not, depending on certain conditions (like permissions, roles, ACLs, etc.) present at run-time
+
+## Creating custom decorator to get user info
+
+## Testing
+
+---> Nestjs tests by taking the code of a complete module and compiling it, and creating a test module out of it
