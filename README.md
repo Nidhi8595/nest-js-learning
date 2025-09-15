@@ -113,3 +113,8 @@ $ npm run test:cov
 
 ---> we make use of transaction to ensure that the order of deleting the parent and child tables is maintained( i.e. the bookmarks are deleted before the user is deleted)
 
+## described the test structure
+
+---> pactum is a request making library
+
+---> signup and signin test created & passed

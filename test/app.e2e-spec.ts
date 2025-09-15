@@ -3,6 +3,8 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
+import * as pactum from 'pactum';
+import { AuthDto } from '../src/auth/dto';
 import { AppModule } from '../src/app.module';
 import { PrismaService } from '../src/prisma/prisma.service';
 
@@ -23,10 +25,13 @@ describe('App e2e', () => {
       }),
     );
     await app.init();// start the server
-
+    await app.listen(3333);
     prisma = app.get(PrismaService);
 
     await prisma.cleanDb();// clean the database before running any tests
+    pactum.request.setBaseUrl(
+      'http://localhost:3333',
+    );
   });
 
   // after testing done
@@ -35,11 +40,34 @@ describe('App e2e', () => {
   });
 
   describe('Auth', () => {
+    const dto: AuthDto = {
+      email: 'vlad@gmail.com',
+      password: '123',
+    }; // to be used by both signup and signin
+
     describe('Signup', () => {
-      it.todo('should sign up');
+      it('should signup', () => {
+
+        return pactum
+          .spec()
+          .post('/auth/signup')
+          .withBody(dto)
+          .expectStatus(201);
+
+      })
     })
+
+
     describe('Signin', () => {
-      it.todo('should sign in');
+      it('should signin', () => {
+
+        return pactum
+          .spec()
+          .post('/auth/signin')
+          .withBody(dto)
+          .expectStatus(200);
+
+      })
     })
   })
 
