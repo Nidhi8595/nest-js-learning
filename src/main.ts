@@ -7,7 +7,7 @@ async function bootstrap() {
 
   // ✅ Enable CORS
   app.enableCors({
-    origin: ["http://localhost:8080", "https://swiftmark-forge-main.vercel.app/"], // Frontend URLs
+    origin: ["http://localhost:8080", "https://swiftmark-forge-main.vercel.app"], // Frontend URLs
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true, // allow cookies/auth headers if needed
   });
