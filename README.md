@@ -118,3 +118,9 @@ $ npm run test:cov
 ---> pactum is a request making library
 
 ---> signup and signin test created & passed
+
+---> Get and Edit user API endpoints done, test created and passed
+
+---> Get empty bookmarks, create bookmark, get all bookmarks, Get, Edit, Delete bookmark by Id API endpoints done, tested, passed
+
+![1758006021744](image/README/1758006021744.png)
