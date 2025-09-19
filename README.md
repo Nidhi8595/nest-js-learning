@@ -1,3 +1,5 @@
+## https://swiftmark-forge-main.vercel.app/
+
 ## Project setup
 
 ```bash
@@ -31,6 +33,7 @@ $ npm run test:cov
 ```
 
 ## Setup of Authentication module
+
 ---- built signup and signin endpoints in AuthController using @Post decorator
 
 ## Setup of docker and postgres
@@ -39,6 +42,7 @@ $ npm run test:cov
 --> setup prisma (a query builder) npm i -D prisma@latest, npm i -D prisma/client , npx prisma init
 
 ## created Models
+
 --> User (id, email, hash, firstname(optional), lastname(optional))
 --> Bookmark (id, title, Description(optional), link)
 
@@ -109,6 +113,7 @@ $ npm run test:cov
 ---> Note: but we can't create that for .env etc so we use dotenv cli for that
 
 ## Deletion (this method is used to clean the database before running tests)
+
 ---> cascade means if user is deleted all his bookmarks will be deleted (due to Parent- child relation)
 
 ---> we make use of transaction to ensure that the order of deleting the parent and child tables is maintained( i.e. the bookmarks are deleted before the user is deleted)
